@@ -71,7 +71,7 @@ $(document).ready(function() {
                                     {{$data->lokasi}}
                                 </td>
                                 <td>
-                                    <a href="/dataukt" class="btn btn-primary ">Detail</a>
+                                    <a href="#" class="btn btn-primary ">Detail</a>
                                 </td>
 
                                 @endforeach

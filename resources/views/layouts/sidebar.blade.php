@@ -2,15 +2,6 @@
     <li class="nav-item nav-profile">
         <div class="nav-link">
             <div class="user-wrapper">
-                <div class="profile-image">
-                    @if(Auth::user()->gambar == '')
-
-                    <img src="{{asset('images/user/default.png')}}" alt="profile image">
-                    @else
-
-                    <img src="{{asset('images/user/'. Auth::user()->gambar)}}" alt="profile image">
-                    @endif
-                </div>
                 <div class="text-wrapper">
                     <p class="profile-name">{{Auth::user()->name}}</p>
                     <div>
@@ -29,25 +20,6 @@
         </a>
     </li>
     @if(Auth::user()->level == 'admin')
-    <li class="nav-item {{ setActive(['dataatletbaru*','dataukt*']) }}">
-        <a class="nav-link " data-toggle="collapse" href="#ui-pendaftaran" aria-expanded="false"
-            aria-controls="ui-basic">
-            <i class="menu-icon mdi mdi-content-copy"></i>
-            <span class="menu-title">Pendaftaran</span>
-            <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse {{ setShow(['dataukt*','dataatletbaru*']) }}" id="ui-pendaftaran">
-            <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                    <a class="nav-link {{ setActive(['dataatletbaru*']) }}" href="#">Atlet Baru</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ setActive(['dataukt*']) }}" href="/dataukt">Ujian Kenaikan
-                        Tingkat</a>
-                </li>
-            </ul>
-        </div>
-    </li>
     <li class="nav-item {{ setActive(['dataatlet*','dataprestasi*']) }}">
         <a class="nav-link " data-toggle="collapse" href="#ui-master" aria-expanded="false" aria-controls="ui-basic">
             <i class="menu-icon mdi mdi-content-copy"></i>
@@ -67,6 +39,26 @@
             </ul>
         </div>
     </li>
+    <li class="nav-item {{ setActive(['dataatletbaru*','dataukt*']) }}">
+        <a class="nav-link " data-toggle="collapse" href="#ui-pendaftaran" aria-expanded="false"
+            aria-controls="ui-basic">
+            <i class="menu-icon mdi mdi-content-copy"></i>
+            <span class="menu-title">Pendaftaran</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ setShow(['dataukt*','dataatletbaru*']) }}" id="ui-pendaftaran">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive(['dataatletbaru*']) }}" href="#">Atlet Baru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive(['dataukt*']) }}" href="/dataukt">Ujian Kenaikan
+                        Tingkat</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
     <li class="nav-item {{ setActive(['spp*', 'kas*']) }}">
         <a class="nav-link " data-toggle="collapse" href="#ui-keuangan" aria-expanded="false" aria-controls="ui-basic">
             <i class="menu-icon mdi mdi-content-copy"></i>
@@ -87,19 +79,19 @@
     @endif
     @if(Auth::user()->level == 'user')
     <li class="nav-item {{ setActive(['transaksi*']) }}">
-        <a class="nav-link" href="{{route('transaksi.index')}}">
+        <a class="nav-link" href="#">
             <i class="menu-icon mdi mdi-backup-restore"></i>
             <span class="menu-title">Pendaftaran Ujian</span>
         </a>
     </li>
     <li class="nav-item {{ setActive(['transaksi*']) }}">
-        <a class="nav-link" href="{{route('transaksi.index')}}">
+        <a class="nav-link" href="#">
             <i class="menu-icon mdi mdi-backup-restore"></i>
             <span class="menu-title">Data Prestasi</span>
         </a>
     </li>
     <li class="nav-item {{ setActive(['transaksi*']) }}">
-        <a class="nav-link" href="{{route('transaksi.index')}}">
+        <a class="nav-link" href="#">
             <i class="menu-icon mdi mdi-backup-restore"></i>
             <span class="menu-title">Data SPP</span>
         </a>

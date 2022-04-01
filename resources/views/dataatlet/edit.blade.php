@@ -114,7 +114,7 @@ $(document).ready(function() {
                                             value="{{$data_atlet->kelas}}">
                                             <option value="reguler">Reguler</option>
                                             <option value="pomsae">pomsae</option>
-                                            <option value="kyurugi">Kyurugi</option>
+                                            <option value="kyorugi">Kyorugi</option>
                                         </select>
                                     </div>
 

@@ -9,5 +9,12 @@ class DataPrestasi extends Model
 {
     public $timestamps = false;
     protected $table = 'dataprestasi';
-    protected $fillable = ['id', 'nama', 'nama_acara', 'tgl_acara', 'lokasi'];
+    protected $fillable = [
+        'id',
+        'foto',
+        'nama',
+        'nama_acara',
+        'tgl_acara',
+        'lokasi',
+    ];
 }

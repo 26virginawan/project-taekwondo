@@ -71,29 +71,12 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        if ($request->file('gambar') == '') {
-            $gambar = null;
-        } else {
-            $file = $request->file('gambar');
-            $dt = Carbon::now();
-            $acak = $file->getClientOriginalExtension();
-            $fileName =
-                rand(11111, 99999) .
-                '-' .
-                $dt->format('Y-m-d-H-i-s') .
-                '.' .
-                $acak;
-            $request->file('gambar')->move('images/user', $fileName);
-            $gambar = $fileName;
-        }
-
         User::create([
             'name' => $request->input('name'),
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'level' => $request->input('level'),
             'password' => bcrypt($request->input('password')),
-            'gambar' => $gambar,
         ]);
 
         Session::flash('message', 'Berhasil ditambahkan!');
@@ -147,20 +130,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user_data = User::findOrFail($id);
-
-        if ($request->file('gambar')) {
-            $file = $request->file('gambar');
-            $dt = Carbon::now();
-            $acak = $file->getClientOriginalExtension();
-            $fileName =
-                rand(11111, 99999) .
-                '-' .
-                $dt->format('Y-m-d-H-i-s') .
-                '.' .
-                $acak;
-            $request->file('gambar')->move('images/user', $fileName);
-            $user_data->gambar = $fileName;
-        }
 
         $user_data->name = $request->input('name');
         $user_data->email = $request->input('email');

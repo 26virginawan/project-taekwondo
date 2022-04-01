@@ -22,14 +22,26 @@ $(document).ready(function() {
                             <h4 class="card-title">Tambah Anggota baru</h4>
 
                             <div class="form-group">
+                                <label for="nama" class="col-md-4 control-label">Username</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">Nama</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="nama">
+                                    <input type="text" class="form-control" name="name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama" class="col-md-4 control-label">Email</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">tgl_registrasi</label>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <input type="date" class="form-control" name="tgl_registrasi">
                                 </div>
                             </div>
@@ -41,7 +53,7 @@ $(document).ready(function() {
                             </div>
                             <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">tanggal Lahir</label>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <input type="date" class="form-control" name="tgl_lahir">
                                 </div>
                             </div>
@@ -86,7 +98,7 @@ $(document).ready(function() {
                                         <option value=""></option>
                                         <option value="reguler">Reguler</option>
                                         <option value="pomsae">pomsae</option>
-                                        <option value="kyurugi">Kyurugi</option>
+                                        <option value="kyorugi">Kyorugi</option>
                                     </select>
                                 </div>
                             </div>

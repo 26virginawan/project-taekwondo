@@ -24,8 +24,8 @@ $(document).ready(function() {
                             <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">Nama</label>
                                 <div class="col-md-6">
-                                    <input id="nama" type="text" class="form-control" name="nama"
-                                        value="{{ $data_atlet->nama }}" readonly>
+                                    <input id="nama" type="text" class="form-control" name="name"
+                                        value="{{ $data_atlet->name }}" readonly>
                                 </div>
                             </div>
 
@@ -95,7 +95,7 @@ $(document).ready(function() {
                                         value="{{$data_atlet->tingkat_sabuk}}">
                                         <option value="reguler">Reguler</option>
                                         <option value="pomsae">pomsae</option>
-                                        <option value="kyurugi">Kyurugi</option>
+                                        <option value="kyorugi">Kyurugi</option>
                                     </select>
                                 </div>
                             </div>

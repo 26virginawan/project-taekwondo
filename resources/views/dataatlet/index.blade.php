@@ -71,7 +71,7 @@ $(document).ready(function() {
                             @foreach($data_atlet as $data)
                             <tr>
                                 <td class="py-1">
-                                    {{$data->nama}}
+                                    {{$data->name}}
                                 </td>
                                 <td>
                                     {{$data->tgl_registrasi}}

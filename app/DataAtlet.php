@@ -10,7 +10,9 @@ class DataAtlet extends Model
     protected $table = 'atlet';
     protected $fillable = [
         'id',
-        'nama',
+        'username',
+        'name',
+        'email',
         'tgl_registrasi',
         'tempat_lahir',
         'tgl_lahir',

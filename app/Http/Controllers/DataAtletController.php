@@ -141,18 +141,28 @@ class DataAtletController extends Controller
         //     $cover = null;
         // }
 
-        DataAtlet::create([
-            'nama' => $request->get('nama'),
-            'tgl_registrasi' => $request->get('tgl_registrasi'),
-            'tempat_lahir' => $request->get('tempat_lahir'),
-            'tgl_lahir' => $request->get('tgl_lahir'),
-            'jenis_kelamin' => $request->get('jenis_kelamin'),
-            'bb' => $request->get('bb'),
-            'tb' => $request->get('tb'),
-            'no_hp' => $request->get('no_hp'),
-            'tingkat_sabuk' => $request->get('tingkat_sabuk'),
-            'kelas' => $request->get('kelas'),
-        ]);
+        // DataAtlet::create([
+        //     'nama' => $request->get('nama'),
+        //     'tgl_registrasi' => $request->get('tgl_registrasi'),
+        //     'tempat_lahir' => $request->get('tempat_lahir'),
+        //     'tgl_lahir' => $request->get('tgl_lahir'),
+        //     'jenis_kelamin' => $request->get('jenis_kelamin'),
+        //     'bb' => $request->get('bb'),
+        //     'tb' => $request->get('tb'),
+        //     'no_hp' => $request->get('no_hp'),
+        //     'tingkat_sabuk' => $request->get('tingkat_sabuk'),
+        //     'kelas' => $request->get('kelas'),
+        // ]);
+        $atlet = new \App\User();
+        $atlet->name = $request->name;
+        $atlet->email = $request->email;
+        $atlet->password = bcrypt('rahasia');
+        $atlet->username = $request->username;
+        $atlet->level = 'user';
+        $atlet->remember_token = str_random(60);
+        $atlet->save();
+
+        $data_atlet = \App\DataAtlet::create($request->all());
 
         // alert()->success('Berhasil.', 'Data telah ditambahkan!');
 

@@ -56,11 +56,7 @@ $(document).ready(function() {
                         <tbody>
                             @foreach($data_prestasi as $data)
                             <tr>
-                                <td class="py-1">
-                                    <img src="{{asset('/storage/prestasi/'. $data->foto)}}" alt="image"
-                                        style="margin-right: 10px;" />
-
-                                </td>
+                                <td><img width="150px" src="(url('/storage/prestasi/')). {{$data->foto }}"></td>
                                 <td>
                                     {{$data->nama}}
                                 </td>

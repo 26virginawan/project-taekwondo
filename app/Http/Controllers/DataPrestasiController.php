@@ -124,12 +124,7 @@ class DataPrestasiController extends Controller
             $file = $request->file('foto');
             $dt = Carbon::now();
             $acak = $file->getClientOriginalExtension();
-            $fileName =
-                rand(11111, 99999) .
-                '-' .
-                $dt->format('Y-m-d-H-i-s') .
-                '.' .
-                $acak;
+            $fileName = rand(11111, 99999) . '.' . $acak;
             $request->file('foto')->move('/storage/prestasi/', $fileName);
             $foto = $fileName;
         } else {

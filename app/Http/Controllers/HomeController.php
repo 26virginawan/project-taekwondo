@@ -34,7 +34,7 @@ class HomeController extends Controller
         $buku = Buku::get();
         return view(
             'home',
-            compact('transaksi', 'anggota', 'buku', 'datas', 'data_atlet')
+            compact('transaksi', 'anggota', 'buku', 'data_atlet')
         );
     }
 }

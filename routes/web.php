@@ -35,3 +35,5 @@ Route::get('/dataprestasi', 'DataPrestasiController@index');
 Route::get('/dataatlet', 'DataAtletController@index');
 
 Route::get('/dataukt', 'DataUktController@index');
+
+Route::get('/iuran', 'IuranController@index');

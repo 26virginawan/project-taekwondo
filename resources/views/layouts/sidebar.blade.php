@@ -68,7 +68,7 @@
         <div class="collapse {{ setShow(['spp*', 'kas*',]) }}" id="ui-keuangan">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                    <a class="nav-link {{ setActive(['spp*']) }}" href="#">Data SPP</a>
+                    <a class="nav-link {{ setActive(['spp*']) }}" href="/iuran">Data SPP</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ setActive(['kas*']) }}" href="#">Data KAS</a>

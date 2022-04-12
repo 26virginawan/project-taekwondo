@@ -24,17 +24,26 @@ $(document).ready(function() {
 
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
+                                    <label for="tgl_buka" class="col-md-4 control-label">Username</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="username"
+                                            value="{{$data_atlet->username}}"></br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
                                     <label for="tgl_buka" class="col-md-4 control-label">Nama</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="nama"
-                                            value="{{$data_atlet->nama}}"></br>
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{$data_atlet->name}}"></br>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
                                     <label for="tgl_buka" class="col-md-4 control-label">Tanggal Registrasi</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-2">
                                         <input type="date" class="form-control" name="tgl_registrasi"
                                             value="{{$data_atlet->tgl_registrasi}}"></br>
                                     </div>
@@ -52,7 +61,7 @@ $(document).ready(function() {
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
                                     <label for="tgl_buka" class="col-md-4 control-label">Tanggal Lahir</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-2">
                                         <input type="date" class="form-control" name="tgl_lahir"
                                             value="{{$data_atlet->tgl_lahir}}"></br>
                                     </div>

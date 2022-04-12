@@ -117,9 +117,6 @@ $(document).ready(function() {
                                 <th>
                                     Kelas
                                 </th>
-                                <th>
-                                    Opsi
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,7 +124,7 @@ $(document).ready(function() {
                             <tr>
                                 <td class="py-1">
 
-                                    {{$data->nama}}
+                                    {{$data->name}}
                                 </td>
                                 <td>
                                     {{$data->tgl_registrasi}}

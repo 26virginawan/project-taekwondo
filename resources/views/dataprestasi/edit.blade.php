@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 @section('content')
 
-<form action="{{ route('dataukt.update', $data_ukt->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('dataprestasi.update', $data_prestasi->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('put') }}
     <div class="row">
@@ -20,77 +20,54 @@ $(document).ready(function() {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Edit Data Ukt</h4>
+                            <h4 class="card-title">Edit Data Prestasi</h4>
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
-                                    <label for="tgl_buka" class="col-md-4 control-label">Tanggal Dibuka</label>
+                                    <label for="tgl_buka" class="col-md-4 control-label">Foto</label>
                                     <div class="col-md-6">
-                                        <input type="date" class="form-control" name="tgl_buka"
-                                            value="{{$data_ukt->tgl_buka}}"></br>
+                                        <input type="file" name="image" class="form-control">
+                                        <small>kosongkan jika tidak mengubah gambar</small>
                                     </div>
-
-
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
-                                    <label for="tgl_buka" class="col-md-4 control-label">Tanggal Ditutup</label>
+                                    <label for="tgl_buka" class="col-md-4 control-label">Nama</label>
                                     <div class="col-md-6">
-                                        <input type="date" class="form-control" name="tgl_tutup"
-                                            value="{{$data_ukt->tgl_tutup}}"></br>
+                                        <input type="text" class="form-control" name="nama"
+                                            value="{{$data_prestasi->nama}}"></br>
                                     </div>
-
-
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
-                                    <label for="tgl_buka" class="col-md-4 control-label">Status</label>
+                                    <label for="tgl_buka" class="col-md-4 control-label">Nama Acara</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="status"
-                                            value="{{$data_ukt->status}}"></br>
+                                        <input type="text" class="form-control" name="nama_acara"
+                                            value="{{$data_prestasi->nama_acara}}"></br>
                                     </div>
-
-
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
+                                    <label for="tgl_buka" class="col-md-4 control-label">Tanggal Acara</label>
+                                    <div class="col-md-2">
+                                        <input type="date" class="form-control" name="tgl_acara"
+                                            value="{{$data_prestasi->tgl_acara}}"></br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
+                                    <label for="tgl_buka" class="col-md-4 control-label">Lokasi</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="lokasi"
+                                            value="{{$data_prestasi->lokasi}}"></br>
+                                    </div>
                                 </div>
                             </div>
 
 
-                            <!-- <div class="form-group{{ $errors->has('tgl_buka') ? ' has-error' : '' }}">
-
-                                <input id="tgl_buka" type="date" class="form-control" name="tgl_buka"
-                                    value="{{ $data_ukt->tgl_buka }}" required>
-                                @if ($errors->has('tgl_buka'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('tgl_buka') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('tgl_tutup') ? ' has-error' : '' }}">
-                            <label for="tgl_tutup" class="col-md-4 control-label">Tanggal Ditutup</label>
-                            <div class="col-md-6">
-                                <input id="tgl_tutup" type="date" class="form-control" name="tgl_tutup"
-                                    value="{{ $data_ukt->tgl_tutup }}" required>
-                                @if ($errors->has('tgl_tutup'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('tgl_tutup') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                            <label for="status" class="col-md-4 control-label">Status</label>
-                            <div class="col-md-6">
-                                <input id="status" type="text" class="form-control" name="status"
-                                    value="{{ $data_ukt->status }}" required>
-                                @if ($errors->has('status'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('status') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div> -->
                             <button type="submit" class="btn btn-primary" id="submit">
                                 Ubah
                             </button>

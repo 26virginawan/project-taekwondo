@@ -56,7 +56,7 @@ $(document).ready(function() {
                         <tbody>
                             @foreach($data_prestasi as $data)
                             <tr>
-                                <td><img width="150px" src="(url('/storage/prestasi/')). {{$data->foto }}"></td>
+                                <td><img src="{{ asset('storage/'.$data->foto) }}" height="400" width="200"></td>
                                 <td>
                                     {{$data->nama}}
                                 </td>
@@ -67,7 +67,28 @@ $(document).ready(function() {
                                     {{$data->lokasi}}
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-primary ">Detail</a>
+                                    <div class="btn-group dropdown">
+                                        <button type="button" class="btn btn-success dropdown-toggle btn-sm"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <div class="dropdown-menu" x-placement="bottom-start"
+                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+                                            <a class="dropdown-item" href="{{route('dataprestasi.edit', $data->id)}}">
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('dataprestasi.destroy', $data->id) }}"
+                                                class="pull-left" method="post">
+                                                {{ csrf_field() }}
+                                                {{ method_field('delete') }}
+                                                <button class="dropdown-item"
+                                                    onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                                                    Delete
+                                                </button>
+                                            </form>
+
+                                        </div>
+                                    </div>
                                 </td>
 
                                 @endforeach

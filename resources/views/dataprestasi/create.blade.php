@@ -64,7 +64,7 @@ $(function() {
                             </div>
                             <div class="form-group">
                                 <label for="nama_acara" class="col-md-4 control-label">tgl_acara</label>
-                                <div class="col-md-6">
+                                <div class="col-md-2">
                                     <input type="date" class="form-control" name="tgl_acara">
                                 </div>
                             </div>

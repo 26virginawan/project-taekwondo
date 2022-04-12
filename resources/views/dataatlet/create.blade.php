@@ -41,7 +41,7 @@ $(document).ready(function() {
                             </div>
                             <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">tgl_registrasi</label>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <input type="date" class="form-control" name="tgl_registrasi">
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ $(document).ready(function() {
                             </div>
                             <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">tanggal Lahir</label>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <input type="date" class="form-control" name="tgl_lahir">
                                 </div>
                             </div>

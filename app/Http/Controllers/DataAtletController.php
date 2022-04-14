@@ -31,9 +31,12 @@ class DataAtletController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
+        $data_user = DataAtlet::get();
 
         $data_atlet = DataAtlet::get();
         return view('dataatlet.index', compact('data_atlet'));
+        // $data_atlet = DataAtlet::where('kelas', '=', 'reguler')->get();
+        // return view('dataatlet.index', compact('data_atlet'));
     }
 
     /**
@@ -157,7 +160,7 @@ class DataAtletController extends Controller
         $atlet->name = $request->name;
         $atlet->email = $request->email;
         $atlet->password = bcrypt('rahasia');
-        $atlet->username = $request->username;
+        $atlet->username = $request->name;
         $atlet->level = 'user';
         $atlet->remember_token = str_random(60);
         $atlet->save();

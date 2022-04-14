@@ -85,7 +85,7 @@
         </a>
     </li>
     <li class="nav-item {{ setActive(['transaksi*']) }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/dataprestasi">
             <i class="menu-icon mdi mdi-backup-restore"></i>
             <span class="menu-title">Data Prestasi</span>
         </a>

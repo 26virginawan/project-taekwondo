@@ -11,9 +11,12 @@ class DataPrestasi extends Model
     protected $table = 'dataprestasi';
     protected $fillable = [
         'id',
-        'foto',
-        'nama',
-        'nama_acara',
+        'name',
+        'nama_kejuaraan',
+        'tingkat',
+        'kelas',
+        'kategori',
+        'perolehan',
         'tgl_acara',
         'lokasi',
     ];

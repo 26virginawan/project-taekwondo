@@ -32,7 +32,7 @@
                             <div class="auto-form-wrapper">
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}"">
-                  <label class=" label">Username</label>
+                  <label class=" label">Email</label>
                                     <div class="input-group">
                                         <input id="email" type="text" class="form-control" name="email"
                                             value="{{ old('email') }}" required autofocus>

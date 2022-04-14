@@ -37,31 +37,54 @@ $(document).ready(function() {
                         <thead>
                             <tr>
                                 <th>
-                                    Foto
-                                </th>
-                                <th>
                                     Nama
                                 </th>
                                 <th>
-                                    Nama Acara
+                                    Nama Kejuaraan
                                 </th>
                                 <th>
-                                    tanggal Acara
+                                    Tingkat
                                 </th>
                                 <th>
-                                    lokasi
+                                    Kelas
+                                </th>
+                                <th>
+                                    Kategori
+                                </th>
+                                <th>
+                                    Perolehan
+                                </th>
+                                <th>
+                                    Tanggal_acara
+                                </th>
+                                <th>
+                                    Lokasi
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($data_prestasi as $data)
                             <tr>
-                                <td><img src="{{ asset('storage/'.$data->foto) }}" height="400" width="200"></td>
                                 <td>
-                                    {{$data->nama}}
+                                    {{$data->name}}
                                 </td>
                                 <td>
-                                    {{$data->nama_acara}}
+                                    {{$data->nama_kejuaraan}}
+                                </td>
+                                <td>
+                                    {{$data->tingkat}}
+                                </td>
+                                <td>
+                                    {{$data->kelas}}
+                                </td>
+                                <td>
+                                    {{$data->kategori}}
+                                </td>
+                                <td>
+                                    {{$data->perolehan}}
+                                </td>
+                                <td>
+                                    {{$data->tgl_acara}}
                                 </td>
                                 <td>
                                     {{$data->lokasi}}

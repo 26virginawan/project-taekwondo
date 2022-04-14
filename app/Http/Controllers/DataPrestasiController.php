@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataPrestasi;
+use App\DataAtlet;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -27,10 +28,10 @@ class DataPrestasiController extends Controller
 
     public function index()
     {
-        if (Auth::user()->level == 'user') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
-        }
+        // if (Auth::user()->level == 'user') {
+        //     Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+        //     return redirect()->to('/');
+        // }
 
         $data_prestasi = DataPrestasi::get();
         return view('dataprestasi.index', compact('data_prestasi'));
@@ -45,10 +46,11 @@ class DataPrestasiController extends Controller
     {
         if (Auth::user()->level == 'user') {
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
+            return redirect()->to('/dataprestasi');
         }
+        $data_name = DataAtlet::all();
 
-        return view('dataprestasi.create');
+        return view('dataprestasi.create', ['data_name' => $data_name]);
     }
 
     /**
@@ -60,23 +62,20 @@ class DataPrestasiController extends Controller
 
     public function store(Request $request)
     {
-        //menyimpan produk ke database
-        if ($request->file('foto')) {
-            //simpan foto produk yang di upload ke direkteri public/storage/imageproduct
-            $file = $request->file('foto')->store('imageprestasi', 'public');
+        DataPrestasi::create([
+            'name' => $request->get('name'),
+            'nama_kejuaraan' => $request->get('nama_kejuaraan'),
+            'tingkat' => $request->get('tingkat'),
+            'kelas' => $request->get('kelas'),
+            'kategori' => $request->get('kategori'),
+            'perolehan' => $request->get('perolehan'),
+            'tgl_acara' => $request->get('tgl_acara'),
+            'lokasi' => $request->get('lokasi'),
+        ]);
 
-            DataPrestasi::create([
-                'foto' => $file,
-                'nama' => $request->get('nama'),
-                'nama_acara' => $request->get('nama_acara'),
-                'tgl_acara' => $request->get('tgl_acara'),
-                'lokasi' => $request->get('lokasi'),
-            ]);
+        alert()->success('Berhasil.', 'Data telah ditambahkan!');
 
-            alert()->success('Berhasil.', 'Data telah ditambahkan!');
-
-            return redirect('/dataprestasi');
-        }
+        return redirect('/dataprestasi');
     }
 
     /**
@@ -105,9 +104,10 @@ class DataPrestasiController extends Controller
      */
     public function edit($id)
     {
+        $data_name = DataAtlet::all();
         if (Auth::user()->level == 'user') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
+            Alert::info('Oopss..', 'Anda dilarang melakukan ini.');
+            return redirect()->to('/dataprestasi');
         }
 
         $data_prestasi = DataPrestasi::findOrFail($id);
@@ -123,22 +123,16 @@ class DataPrestasiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data_name = DataAtlet::all();
         $data_prestasi = DataPrestasi::findOrFail($id);
-
-        if ($request->file('foto')) {
-            Storage::delete('public/' . $data_prestasi->image);
-            $file = $request->file('foto')->store('imageprestasi', 'public');
-            $data_prestasi->foto = $file;
-        }
-
-        // $data_prestasi->nama = $request->nama;
-        // $data_prestasi->nama_acara = $request->nama_acara;
-        // $data_prestasi->tgl_acara = $request->tgl_acara;
-        // $data_prestasi->lokasi = $request->lokasi;
 
         DataPrestasi::find($id)->update([
             'nama' => $request->get('nama'),
-            'nama_acara' => $request->get('nama_acara'),
+            'nama_kejuaraan' => $request->get('nama_kejuaraan'),
+            'tingkat' => $request->get('tingkat'),
+            'kelas' => $request->get('kelas'),
+            'kategori' => $request->get('kategori'),
+            'perolehan' => $request->get('perolehan'),
             'tgl_acara' => $request->get('tgl_acara'),
             'lokasi' => $request->get('lokasi'),
         ]);
@@ -155,6 +149,10 @@ class DataPrestasiController extends Controller
      */
     public function destroy($id)
     {
+        if (Auth::user()->level == 'user') {
+            Alert::info('Oopss..', 'Anda dilarang melakukan ini.');
+            return redirect()->to('/dataprestasi');
+        }
         DataPrestasi::find($id)->delete();
         alert()->success('Berhasil.', 'Data telah dihapus!');
         return redirect('/dataprestasi');

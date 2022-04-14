@@ -20,13 +20,6 @@ $(document).ready(function() {
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Tambah Anggota baru</h4>
-
-                            <div class="form-group">
-                                <label for="nama" class="col-md-4 control-label">Username</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="username">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">Nama</label>
                                 <div class="col-md-6">

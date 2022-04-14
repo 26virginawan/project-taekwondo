@@ -136,29 +136,6 @@ $(document).ready(function() {
                                 <td>{{$data->no_hp}}</td>
                                 <td>{{$data->tingkat_sabuk}}</td>
                                 <td>{{$data->kelas}}</td>
-                                <!-- <td>
-                                    <div class="btn-group dropdown">
-                                        <button type="button" class="btn btn-success dropdown-toggle btn-sm"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Action
-                                        </button>
-                                        <div class="dropdown-menu" x-placement="bottom-start"
-                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-                                            <a class="dropdown-item" href="{{route('anggota.edit', $data->id)}}"> Edit
-                                            </a>
-                                            <form action="{{ route('anggota.destroy', $data->id) }}" class="pull-left"
-                                                method="post">
-                                                {{ csrf_field() }}
-                                                {{ method_field('delete') }}
-                                                <button class="dropdown-item"
-                                                    onclick="return confirm('Anda yakin ingin menghapus data ini?')">
-                                                    Delete
-                                                </button>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </td> -->
                                 @endforeach
                         </tbody>
                     </table>
@@ -171,34 +148,22 @@ $(document).ready(function() {
 @if(Auth::user()->level == 'user')
 
 <div class="row">
-    <div class="col-xl-4">
-        <!-- Profile picture card-->
-        <div class="card mb-4 mb-xl-0">
-            <div class="card-header">Profile Picture</div>
-            <div class="card-body text-center">
-                <!-- Profile picture image-->
-                <img class="img-account-profile rounded-circle mb-2"
-                    src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width:200px;height:200px;">
-                <!-- Profile picture help block-->
 
-                <!-- Profile picture upload button-->
-                <button class="btn btn-primary" type="button">Upload new image</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-8">
+    <div class="col-xl-12">
         <!-- Account details card-->
         <div class="card mb-4">
             <div class="card-header">Account Details</div>
             <div class="card-body">
+                @foreach($data_atlet as $data)
                 <form>
                     <!-- Form Group (username)-->
                     <div class="mb-3">
-                        <label class="small mb-1" for="inputUsername">Username (how your name will appear to other
-                            users
-                            on the site)</label>
-                        <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username"
-                            value="username">
+                        <label class="small mb-1" for="inputUsername">Username</label>
+                        <input type="text" class="form-control" name="name " value="{{$data->name}}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputUsername">Tempat Lahir</label>
+                        <input type="text" class="form-control" name="tempat_lahir " value="{{$data->tempat_lahir}}">
                     </div>
                     <!-- Form Row-->
                     <div class="row gx-3 mb-3">
@@ -254,6 +219,7 @@ $(document).ready(function() {
                     <!-- Save changes button-->
                     <button class="btn btn-primary" type="button">Save changes</button>
                 </form>
+                @endforeach
             </div>
         </div>
     </div>

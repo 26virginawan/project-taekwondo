@@ -24,15 +24,6 @@ $(document).ready(function() {
 
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
-                                    <label for="tgl_buka" class="col-md-4 control-label">Username</label>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="username"
-                                            value="{{$data_atlet->username}}"></br>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
                                     <label for="tgl_buka" class="col-md-4 control-label">Nama</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="name"

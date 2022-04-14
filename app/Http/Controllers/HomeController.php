@@ -37,4 +37,8 @@ class HomeController extends Controller
             compact('transaksi', 'anggota', 'buku', 'data_atlet')
         );
     }
+
+    public function profil()
+    {
+    }
 }

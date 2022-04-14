@@ -42,24 +42,66 @@ $(function() {
                         <div class="card-body">
                             <h4 class="card-title">Tambah Data Prestasi</h4>
 
-                            <div class="form-group">
-                                <label for="email" class="col-md-4 control-label">Foto</label>
-                                <div class="col-md-6">
-                                    <img width="200" height="200" />
-                                    <input type="file" class="uploads form-control" style="margin-top: 20px;"
-                                        name="foto">
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">Nama</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="nama">
+                                <div class="col-md-4">
+                                    <select name="name" class="form-control">
+                                        @foreach($data_name as $data)
+                                        <option value="{{$data->name}}">{{$data->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="nama_acara" class="col-md-4 control-label">Nama Acara</label>
+                                <label for="nama_acara" class="col-md-4 control-label">Nama Kejuaraan</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="nama_acara">
+                                    <input type="text" class="form-control" name="nama_kejuaraan">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama" class="col-md-4 control-label">Tingkat</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" name="tingkat" required="">
+                                        <option value=""></option>
+                                        <option value="internasional">Internasional</option>
+                                        <option value="nasional">Nasional</option>
+                                        <option value="provinsi">Procinsi</option>
+                                        <option value="kabupaten">Kabupaten</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama" class="col-md-4 control-label">Kelas</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" name="kelas" required="">
+                                        <option value=""></option>
+                                        <option value="pracadet">Pracadet</option>
+                                        <option value="cadet">Cadet</option>
+                                        <option value="junior">Junior</option>
+                                        <option value="senior">Senior</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama" class="col-md-4 control-label">Kategori</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" name="kategori" required="">
+                                        <option value=""></option>
+                                        <option value="prestasi">Prestasi</option>
+                                        <option value="pemula">Pemula</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama" class="col-md-4 control-label">Perolehan</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" name="perolehan" required="">
+                                        <option value=""></option>
+                                        <option value="emas">Emas</option>
+                                        <option value="perak">Perak</option>
+                                        <option value="perunggu">Perunggu</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

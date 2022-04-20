@@ -18,7 +18,8 @@
 </head>
 
 <body>
-    <form method="POST" action="{{ route('user.store') }}">
+
+    <form method="POST" action="{{ route('dataatlet.store') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="container-scroller">
             <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
@@ -31,85 +32,79 @@
                         <div class="col-lg-6 mx-auto">
                             <div class="auto-form-wrapper">
 
-                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                    <label for="name" class="col-md-4 control-label">Name</label>
-                                    <div class="col-md-10">
-                                        <input id="name" type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}" required>
-                                        @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                                    <label for="username" class="col-md-4 control-label">Username</label>
-                                    <div class="col-md-10">
-                                        <input id="username" type="text" class="form-control" name="username"
-                                            value="{{ old('username') }}" required>
-                                        @if ($errors->has('username'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('username') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-                                    <div class="col-md-10">
-                                        <input id="email" type="email" class="form-control" name="email"
-                                            value="{{ old('email') }}" required>
-                                        @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-
                                 <div class="form-group">
-                                    <label for="email" class="col-md-4 control-label">Gambar</label>
-                                    <div class="col-md-10">
-                                        <img class="product" width="200" height="200" />
-                                        <input type="file" class="uploads form-control" style="margin-top: 20px;"
-                                            name="gambar">
+                                    <label for="nama" class="col-md-4 control-label">Nama</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="name">
                                     </div>
                                 </div>
-
-
-                                <div class="form-group{{ $errors->has('level') ? ' has-error' : '' }}">
-                                    <label for="level" class="col-md-4 control-label">Level</label>
-                                    <div class="col-md-10">
-                                        <select class="form-control" name="level" required="">
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">Email</label>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">tgl_registrasi</label>
+                                    <div class="col-md-6">
+                                        <input type="date" class="form-control" name="tgl_registrasi">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">tempat Lahir</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="tempat_lahir">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">tanggal Lahir</label>
+                                    <div class="col-md-6">
+                                        <input type="date" class="form-control" name="tgl_lahir">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">jenis_kelamin</label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" name="jenis_kelamin" required="">
                                             <option value=""></option>
-                                            <option value="admin">Admin</option>
-                                            <option value="user">User</option>
+                                            <option value="L">Laki - Laki</option>
+                                            <option value="P">Perempuan</option>
                                         </select>
                                     </div>
                                 </div>
-
-
-                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="password" class="col-md-4 control-label">Password</label>
-                                    <div class="col-md-10">
-                                        <input id="password" type="password" class="form-control" onkeyup='check();'
-                                            name="password" required>
-                                        @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                        @endif
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">bb</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="bb">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password-confirm" class="col-md-4 control-label">Confirm
-                                        Password</label>
-                                    <div class="col-md-10">
-                                        <input id="confirm_password" type="password" onkeyup="check()"
-                                            class="form-control" name="password_confirmation" required>
-                                        <span id='message'></span>
+                                    <label for="nama" class="col-md-4 control-label">tb</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="tb">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">no_hp</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="no_hp">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">jenis_sabuk</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="tingkat_sabuk">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">kelas</label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" name="kelas" required="">
+                                            <option value=""></option>
+                                            <option value="reguler">Reguler</option>
+                                            <option value="pomsae">pomsae</option>
+                                            <option value="kyorugi">Kyorugi</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary" id="submit">

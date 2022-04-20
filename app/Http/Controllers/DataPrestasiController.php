@@ -32,9 +32,17 @@ class DataPrestasiController extends Controller
         //     Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
         //     return redirect()->to('/');
         // }
+        $dataprofil = DataPrestasi::where(
+            'name',
+
+            Auth::user()->name
+        )->get();
 
         $data_prestasi = DataPrestasi::get();
-        return view('dataprestasi.index', compact('data_prestasi'));
+        return view(
+            'dataprestasi.index',
+            compact('data_prestasi', 'dataprofil')
+        );
     }
 
     /**

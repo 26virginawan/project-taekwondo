@@ -7,6 +7,7 @@ use App\Transaksi;
 use App\Anggota;
 use App\Buku;
 use App\DataAtlet;
+use App\User;
 use Auth;
 
 class HomeController extends Controller
@@ -32,13 +33,26 @@ class HomeController extends Controller
         $transaksi = Transaksi::get();
         $anggota = Anggota::get();
         $buku = Buku::get();
+        $user = User::select('name');
+
+        $dataprofil = DataAtlet::where(
+            'name',
+
+            Auth::user()->name
+        )->get();
+
         return view(
             'home',
-            compact('transaksi', 'anggota', 'buku', 'data_atlet')
+            compact('transaksi', 'anggota', 'buku', 'data_atlet', 'dataprofil')
         );
     }
 
     public function profil()
     {
+        if (Auth::user()->level == 'user') {
+            $aktif = DataAtlet::where('id', 'name');
+        }
+
+        $dataprofil = DataAtlet::where('id', $aktif);
     }
 }

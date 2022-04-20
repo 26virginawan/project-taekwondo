@@ -11,6 +11,7 @@ class DataAtlet extends Model
     protected $fillable = [
         'id',
         'name',
+        'username',
         'email',
         'tgl_registrasi',
         'tempat_lahir',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\DataIuran;
 use App\DataAtlet;
 use Carbon\Carbon;
 use Session;
@@ -12,7 +13,7 @@ use DB;
 use Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class DataAtletController extends Controller
+class DataIuranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,12 +32,17 @@ class DataAtletController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-        $data_user = DataAtlet::get();
+        $data_user = DataIuran::get();
 
-        $data_atlet = DataAtlet::get();
-        return view('dataatlet.index', compact('data_atlet'));
-        // $data_atlet = DataAtlet::where('kelas', '=', 'reguler')->get();
-        // return view('dataatlet.index', compact('data_atlet'));
+        $data_iuran = DataIuran::get();
+        return view('dataiuran.index', compact('data_iuran'));
+    }
+
+    public function atlet()
+    {
+        $atlet = DataAtlet::get();
+
+        return view('dataiuran.dataatlet', compact('atlet'));
     }
 
     /**
@@ -46,7 +52,13 @@ class DataAtletController extends Controller
      */
     public function create()
     {
-        return view('dataatlet.create');
+        if (Auth::user()->level == 'user') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/dataiuran');
+        }
+        $data_iuran = DataIuran::all();
+
+        return view('dataiuran.create');
     }
 
     /**
@@ -57,21 +69,15 @@ class DataAtletController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $atlet = new \App\User();
-        $atlet->name = $request->name;
-        $atlet->email = $request->email;
-        $atlet->password = bcrypt('rahasia');
-        $atlet->username = $request->username;
-        $atlet->level = 'user';
-        $atlet->remember_token = str_random(60);
-        $atlet->save();
-
-        $data_atlet = \App\DataAtlet::create($request->all());
+        DataIuran::create([
+            'bulan' => $request->get('bulan'),
+            'tgl_bayar' => $request->get('tgl_bayar'),
+            'keterangan' => $request->get('keterangan'),
+        ]);
 
         alert()->success('Berhasil.', 'Data telah ditambahkan!');
 
-        return redirect('/dataatlet');
+        return redirect('/dataiuran');
     }
 
     /**
@@ -87,9 +93,9 @@ class DataAtletController extends Controller
             return redirect()->to('/');
         }
 
-        $data_atlet = DataAtlet::findOrFail($id);
+        $data_iuran = DataIuran::findOrFail($id);
 
-        return view('dataatlet.show', compact('data_atlet'));
+        return view('dataiuran.show', compact('data_iuran'));
     }
 
     /**
@@ -105,8 +111,8 @@ class DataAtletController extends Controller
             return redirect()->to('/');
         }
 
-        $data_atlet = DataAtlet::findOrFail($id);
-        return view('dataatlet.edit', compact('data_atlet'));
+        $data_iuran = DataIuran::findOrFail($id);
+        return view('dataiuran.edit', compact('data_iuran'));
     }
 
     /**
@@ -118,21 +124,14 @@ class DataAtletController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DataAtlet::find($id)->update([
-            'nama' => $request->get('nama'),
-            'tgl_registrasi' => $request->get('tgl_registrasi'),
-            'tempat_lahir' => $request->get('tempat_lahir'),
-            'tgl_lahir' => $request->get('tgl_lahir'),
-            'jenis_kelamin' => $request->get('jenis_kelamin'),
-            'bb' => $request->get('bb'),
-            'tb' => $request->get('tb'),
-            'no_hp' => $request->get('no_hp'),
-            'tingkat_sabuk' => $request->get('tingkat_sabuk'),
-            'kelas' => $request->get('kelas'),
+        DataIuran::find($id)->update([
+            'bulan' => $request->get('bulan'),
+            'tgl_bayar' => $request->get('tgl_bayar'),
+            'keterangan' => $request->get('keterangan'),
         ]);
 
         alert()->success('Berhasil.', 'Data telah diubah!');
-        return redirect('/dataatlet');
+        return redirect('/dataiuran');
     }
 
     /**
@@ -143,8 +142,8 @@ class DataAtletController extends Controller
      */
     public function destroy($id)
     {
-        DataAtlet::find($id)->delete();
+        DataIuran::find($id)->delete();
         alert()->success('Berhasil.', 'Data telah dihapus!');
-        return redirect('/dataatlet');
+        return redirect('/dataiuran');
     }
 }

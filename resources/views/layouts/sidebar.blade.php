@@ -59,19 +59,34 @@
         </div>
     </li>
 
-    <li class="nav-item {{ setActive(['spp*', 'kas*']) }}">
+    <li class="nav-item {{ setActive(['spp*', 'kas*','kasmasuk*','kaskeluar*']) }}">
         <a class="nav-link " data-toggle="collapse" href="#ui-keuangan" aria-expanded="false" aria-controls="ui-basic">
             <i class="menu-icon mdi mdi-content-copy"></i>
             <span class="menu-title">Data Keuangan</span>
             <i class="menu-arrow"></i>
         </a>
-        <div class="collapse {{ setShow(['spp*', 'kas*',]) }}" id="ui-keuangan">
+        <div class="collapse {{ setShow(['spp*', 'kas*']) }}" id="ui-keuangan">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                    <a class="nav-link {{ setActive(['spp*']) }}" href="/iuran">Data SPP</a>
+                    <a class="nav-link {{ setActive(['spp*']) }}" href="/cobak">Data SPP</a>
+                </li>
+
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item {{ setActive(['kasmasuk*', 'kaskeluar*']) }}">
+        <a class="nav-link " data-toggle="collapse" href="#ui-kas" aria-expanded="false" aria-controls="ui-basic">
+            <i class="menu-icon mdi mdi-content-copy"></i>
+            <span class="menu-title">Data Kas</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ setShow(['kasmasuk*', 'kaskeluar*',]) }}" id="ui-kas">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive(['kasmasuk*']) }}" href="#">Data Masuk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ setActive(['kas*']) }}" href="#">Data KAS</a>
+                    <a class="nav-link {{ setActive(['kaskeluar*']) }}" href="#">Data Keluar</a>
                 </li>
             </ul>
         </div>

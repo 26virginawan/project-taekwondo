@@ -154,68 +154,71 @@ $(document).ready(function() {
         <div class="card mb-4">
             <div class="card-header">Account Details</div>
             <div class="card-body">
-                @foreach($data_atlet as $data)
+                @foreach($dataprofil as $data)
                 <form>
                     <!-- Form Group (username)-->
                     <div class="mb-3">
                         <label class="small mb-1" for="inputUsername">Username</label>
-                        <input type="text" class="form-control" name="name " value="{{$data->name}}">
+
+                        <input type="text" class="form-control" name="name " value="{{$data->name}}" readonly>
+
                     </div>
-                    <div class="mb-3">
-                        <label class="small mb-1" for="inputUsername">Tempat Lahir</label>
-                        <input type="text" class="form-control" name="tempat_lahir " value="{{$data->tempat_lahir}}">
-                    </div>
+
                     <!-- Form Row-->
                     <div class="row gx-3 mb-3">
                         <!-- Form Group (first name)-->
                         <div class="col-md-6">
-                            <label class="small mb-1" for="inputFirstName">First name</label>
-                            <input class="form-control" id="inputFirstName" type="text"
-                                placeholder="Enter your first name" value="Valerie">
+                            <label class="small mb-1" for="inputUsername">Tempat Lahir</label>
+
+                            <input type="text" class="form-control" name="name " value="{{$data->tempat_lahir}}"
+                                readonly>
+
                         </div>
                         <!-- Form Group (last name)-->
                         <div class="col-md-6">
-                            <label class="small mb-1" for="inputLastName">Last name</label>
-                            <input class="form-control" id="inputLastName" type="text"
-                                placeholder="Enter your last name" value="Luna">
+                            <label class="small mb-1" for="inputUsername">Tanggal Lahir</label>
+
+                            <input type="text" class="form-control" name="name " value="{{$data->tgl_lahir}}" readonly>
+
                         </div>
                     </div>
                     <!-- Form Row        -->
                     <div class="row gx-3 mb-3">
                         <!-- Form Group (organization name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputOrgName">Organization name</label>
-                            <input class="form-control" id="inputOrgName" type="text"
-                                placeholder="Enter your organization name" value="Start Bootstrap">
+                        <div class="col-md-4">
+                            <label class="small mb-1" for="inputOrgName">Jenis Kelamin</label>
+                            <input type="text" class="form-control" name="name " value="{{$data->jenis_kelamin}}"
+                                readonly>
                         </div>
                         <!-- Form Group (location)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputLocation">Location</label>
-                            <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location"
-                                value="San Francisco, CA">
+                        <div class="col-md-4">
+                            <label class="small mb-1" for="inputLocation">Berat Badan</label>
+                            <input type="text" class="form-control" name="name " value="{{$data->bb}}" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="small mb-1" for="inputLocation">Tinggi Badan</label>
+                            <input type="text" class="form-control" name="name " value="{{$data->tb}}" readonly>
                         </div>
                     </div>
-                    <!-- Form Group (email address)-->
                     <div class="mb-3">
-                        <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                        <input class="form-control" id="inputEmailAddress" type="email"
-                            placeholder="Enter your email address" value="name@example.com">
+                        <label class="small mb-1" for="inputUsername">No HP</label>
+
+                        <input type="text" class="form-control" name="name " value="{{$data->no_hp}}" readonly>
+
                     </div>
-                    <!-- Form Row-->
-                    <div class="row gx-3 mb-3">
-                        <!-- Form Group (phone number)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputPhone">Phone number</label>
-                            <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number"
-                                value="555-123-4567">
-                        </div>
-                        <!-- Form Group (birthday)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputBirthday">Birthday</label>
-                            <input class="form-control" id="inputBirthday" type="text" name="birthday"
-                                placeholder="Enter your birthday" value="06/10/1988">
-                        </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputUsername">Tingkat Sabuk</label>
+
+                        <input type="text" class="form-control" name="name " value="{{$data->tingkat_sabuk}}" readonly>
+
                     </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputUsername">Kelas</label>
+
+                        <input type="text" class="form-control" name="name " value="{{$data->kelas}}" readonly>
+
+                    </div>
+
                     <!-- Save changes button-->
                     <button class="btn btn-primary" type="button">Save changes</button>
                 </form>

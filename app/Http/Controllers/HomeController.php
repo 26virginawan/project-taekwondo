@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Transaksi;
-use App\Anggota;
-use App\Buku;
 use App\DataAtlet;
 use App\User;
 use Auth;
@@ -30,9 +27,6 @@ class HomeController extends Controller
     public function index()
     {
         $data_atlet = DataAtlet::get();
-        $transaksi = Transaksi::get();
-        $anggota = Anggota::get();
-        $buku = Buku::get();
         $user = User::select('name');
 
         $dataprofil = DataAtlet::where(
@@ -41,10 +35,7 @@ class HomeController extends Controller
             Auth::user()->name
         )->get();
 
-        return view(
-            'home',
-            compact('transaksi', 'anggota', 'buku', 'data_atlet', 'dataprofil')
-        );
+        return view('home', compact('data_atlet', 'dataprofil'));
     }
 
     public function profil()

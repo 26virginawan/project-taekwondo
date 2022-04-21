@@ -27,6 +27,12 @@ $(document).ready(function() {
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="nama" class="col-md-4 control-label">Username</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">Email</label>
                                 <div class="col-md-6">
                                     <input type="email" class="form-control" name="email">

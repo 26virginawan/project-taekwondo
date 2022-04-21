@@ -35,6 +35,10 @@ Route::resource('dataukt', 'DataUktController');
 
 Route::resource('dataprestasi', 'DataPrestasiController');
 
+Route::resource('kasmasuk', 'KasMasukController');
+
+Route::resource('kaskeluar', 'KasKeluarController');
+
 Route::get('/dataprestasi', 'DataPrestasiController@index');
 
 Route::get('/dataatlet', 'DataAtletController@index');
@@ -42,5 +46,9 @@ Route::get('/dataatlet', 'DataAtletController@index');
 Route::get('/dataukt', 'DataUktController@index');
 
 Route::get('/dataiuran', 'DataIuranController@index');
+
+Route::get('/kasmasuk', 'KasMasukController@index');
+
+Route::get('/kaskeluar', 'KasKeluarController@index');
 
 Route::get('/cobak', 'DataIuranController@atlet');

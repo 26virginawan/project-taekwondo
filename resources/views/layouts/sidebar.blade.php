@@ -13,7 +13,7 @@
             </div>
         </div>
     </li>
-    <li class="nav-item {{ setActive(['/', 'home']) }}">
+    <li class="nav-item {{ setActive(['/', 'home','user']) }}">
         <a class="nav-link" href="{{url('/')}}">
             <i class="menu-icon mdi mdi-television"></i>
             <span class="menu-title">Dashboard</span>

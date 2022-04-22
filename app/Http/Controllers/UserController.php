@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\DataAtlet;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -25,13 +26,19 @@ class UserController extends Controller
 
     public function index()
     {
-        if (Auth::user()->level == 'user') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
-        }
+        // if (Auth::user()->level == 'user') {
+        //     Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+        //     return redirect()->to('/');
+        // }
+        $data_atlet = DataAtlet::get();
+        $dataprofil = DataAtlet::where(
+            'name',
+
+            Auth::user()->name
+        )->get();
 
         $datas = User::get();
-        return view('auth.user', compact('datas'));
+        return view('auth.user', compact('datas', 'dataprofil', 'data_atlet'));
     }
 
     /**
@@ -133,6 +140,7 @@ class UserController extends Controller
 
         $user_data->name = $request->input('name');
         $user_data->email = $request->input('email');
+        $user_data->level = $request->input('level');
         if ($request->input('password')) {
             $user_data->level = $request->input('level');
         }

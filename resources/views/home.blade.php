@@ -129,7 +129,7 @@ $(document).ready(function() {
                                 <td>
                                     {{$data->tgl_registrasi}}
                                 </td>
-                                <td>{{$data->tempat_lahir}},{{$data->tgl_lahir}}</td>
+                                <td>{{$data->tempat_lahir}}, {{$data->tgl_lahir}}</td>
                                 <td>{{$data->jenis_kelamin}}</td>
                                 <td>{{$data->bb}}</td>
                                 <td>{{$data->tb}}</td>
@@ -148,84 +148,96 @@ $(document).ready(function() {
 @if(Auth::user()->level == 'user')
 
 <div class="row">
-
-    <div class="col-xl-12">
-        <!-- Account details card-->
-        <div class="card mb-4">
-            <div class="card-header">Account Details</div>
-            <div class="card-body">
-                @foreach($dataprofil as $data)
-                <form>
-                    <!-- Form Group (username)-->
-                    <div class="mb-3">
-                        <label class="small mb-1" for="inputUsername">Username</label>
-
-                        <input type="text" class="form-control" name="name " value="{{$data->name}}" readonly>
-
-                    </div>
-
-                    <!-- Form Row-->
-                    <div class="row gx-3 mb-3">
-                        <!-- Form Group (first name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputUsername">Tempat Lahir</label>
-
-                            <input type="text" class="form-control" name="name " value="{{$data->tempat_lahir}}"
-                                readonly>
-
-                        </div>
-                        <!-- Form Group (last name)-->
-                        <div class="col-md-6">
-                            <label class="small mb-1" for="inputUsername">Tanggal Lahir</label>
-
-                            <input type="text" class="form-control" name="name " value="{{$data->tgl_lahir}}" readonly>
-
-                        </div>
-                    </div>
-                    <!-- Form Row        -->
-                    <div class="row gx-3 mb-3">
-                        <!-- Form Group (organization name)-->
-                        <div class="col-md-4">
-                            <label class="small mb-1" for="inputOrgName">Jenis Kelamin</label>
-                            <input type="text" class="form-control" name="name " value="{{$data->jenis_kelamin}}"
-                                readonly>
-                        </div>
-                        <!-- Form Group (location)-->
-                        <div class="col-md-4">
-                            <label class="small mb-1" for="inputLocation">Berat Badan</label>
-                            <input type="text" class="form-control" name="name " value="{{$data->bb}}" readonly>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="small mb-1" for="inputLocation">Tinggi Badan</label>
-                            <input type="text" class="form-control" name="name " value="{{$data->tb}}" readonly>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="small mb-1" for="inputUsername">No HP</label>
-
-                        <input type="text" class="form-control" name="name " value="{{$data->no_hp}}" readonly>
-
-                    </div>
-                    <div class="mb-3">
-                        <label class="small mb-1" for="inputUsername">Tingkat Sabuk</label>
-
-                        <input type="text" class="form-control" name="name " value="{{$data->tingkat_sabuk}}" readonly>
-
-                    </div>
-                    <div class="mb-3">
-                        <label class="small mb-1" for="inputUsername">Kelas</label>
-
-                        <input type="text" class="form-control" name="name " value="{{$data->kelas}}" readonly>
-
-                    </div>
-
-                    <!-- Save changes button-->
-                    <button class="btn btn-primary" type="button">Save changes</button>
-                </form>
-                @endforeach
+    @foreach($dataprofil as $data)
+    <div class="col-xl-4">
+        <!-- Profile picture card-->
+        <div class="card mb-4 mb-xl-0">
+            <div class="card-header">foto Profil</div>
+            <div class="card-body text-center">
+                <!-- Profile picture image-->
+                <img class="img-account-profile rounded-circle mb-2"
+                    src="https://i.pinimg.com/236x/82/2b/ae/822baef36029716ec69b17259bc74ac2.jpg" alt=""
+                    style="width:200px;height:200px;">
+                <h4 class="font-weight-bold">{{$data->name}}</h4>
+                <h5>- {{$data->kelas}} -</h5>
             </div>
         </div>
     </div>
+
+    <div class="col-xl-8">
+        <!-- Account details card-->
+        <div class="card mb-4">
+            <div class="card-header">Profil Saya</div>
+            <div class="card-body">
+
+
+                <!-- Form Group (username)-->
+                <div class="mb-3">
+                    <label class="medium mb-1 font-weight-bold" for="inputUsername">Name</label>
+
+                    <p>{{$data->name}}</p>
+                </div>
+
+                <!-- Form Row-->
+                <div class="mb-3">
+                    <!-- Form Group (first name)-->
+
+                    <label class="medium mb-1 font-weight-bold" for="inputUsername">Tempat Lahir</label>
+
+                    <p>{{$data->tempat_lahir}}</p>
+
+                    <!-- Form Group (last name)-->
+
+                </div>
+                <div class="mb-3">
+
+                    <label class="medium mb-1 font-weight-bold" for="inputUsername">Tanggal Lahir</label>
+
+                    <p>{{$data->tgl_lahir}}</p>
+
+                </div>
+                <!-- Form Row        -->
+                <div class="row gx-3 mb-3">
+                    <!-- Form Group (organization name)-->
+                    <div class="col-md-4">
+                        <label class="medium mb-1 font-weight-bold" for="inputUsername">Jenis Kelamin</label>
+
+                        <p>{{$data->jenis_kelamin}}</p>
+                    </div>
+                    <!-- Form Group (location)-->
+                    <div class="col-md-4">
+                        <label class="medium mb-1 font-weight-bold" for="inputUsername">Berat Badan</label>
+
+                        <p>{{$data->bb}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="medium mb-1 font-weight-bold" for="inputUsername">Tinggi Badan</label>
+
+                        <p>{{$data->tb}}</p>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="medium mb-1 font-weight-bold" for="inputUsername">No HP</label>
+
+                    <p>{{$data->no_hp}}</p>
+
+                </div>
+                <div class="mb-3">
+                    <label class="medium mb-1 font-weight-bold" for="inputUsername">Tingkat Sabuk</label>
+
+                    <p>{{$data->tingkat_sabuk}}</p>
+                </div>
+                <div class="mb-3">
+                    <label class="medium mb-1 font-weight-bold" for="inputUsername">Kelas</label>
+
+                    <p>{{$data->kelas}}</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    @endforeach
 </div>
 @endif
 @endsection

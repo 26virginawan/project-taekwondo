@@ -61,8 +61,8 @@ $(document).ready(function() {
                                 <div class="col-md-6">
                                     <select class="form-control" name="jenis_kelamin" required="">
                                         <option value=""></option>
-                                        <option value="L">Laki - Laki</option>
-                                        <option value="P">Perempuan</option>
+                                        <option value="Laki-Laki">Laki - Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
                                     </select>
                                 </div>
                             </div>

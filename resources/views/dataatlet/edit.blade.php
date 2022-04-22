@@ -64,8 +64,10 @@ $(document).ready(function() {
                                     <div class="col-md-6">
                                         <select class="form-control" name="jenis_kelamin" required="">
                                             value="{{$data_atlet->jenis_kelamin}}">
-                                            <option value="L">Laki - Laki</option>
-                                            <option value="P">Perempuan</option>
+                                            <option value="{{$data_atlet->jenis_kelamin}}">
+                                                {{$data_atlet->jenis_kelamin}}</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
                                         </select>
                                     </div>
                                 </div>
@@ -112,6 +114,7 @@ $(document).ready(function() {
                                     <div class="col-md-6">
                                         <select class="form-control" name="kelas" required="">
                                             value="{{$data_atlet->kelas}}">
+                                            <option value="{{$data_atlet->kelas}}">{{$data_atlet->kelas}}</option>
                                             <option value="reguler">Reguler</option>
                                             <option value="pomsae">pomsae</option>
                                             <option value="kyorugi">Kyorugi</option>
@@ -127,7 +130,7 @@ $(document).ready(function() {
                             <button type="reset" class="btn btn-danger">
                                 Reset
                             </button>
-                            <a href="{{route('anggota.index')}}" class="btn btn-light pull-right">Back</a>
+                            <a href="/dataatlet" class="btn btn-light pull-right">Back</a>
                         </div>
                     </div>
                 </div>

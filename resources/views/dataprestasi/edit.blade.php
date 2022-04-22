@@ -48,6 +48,8 @@ $(document).ready(function() {
                                     <div class="col-md-6">
                                         <select class="form-control" name="tingkat" required="">
                                             value="{{$data_prestasi->tingkat}}">
+                                            <option value="{{$data_prestasi->tingkat}}">{{$data_prestasi->tingkat}}
+                                            </option>
                                             <option value="internasional">Internasional</option>
                                             <option value="nasional">Nasional</option>
                                             <option value="provinsi">Procinsi</option>
@@ -62,6 +64,7 @@ $(document).ready(function() {
                                     <div class="col-md-6">
                                         <select class="form-control" name="kelas" required="">
                                             value="{{$data_prestasi->kelas}}">
+                                            <option value="{{$data_prestasi->kelas}}">{{$data_prestasi->kelas}}</option>
                                             <option value="pracadet">Pracadet</option>
                                             <option value="cadet">Cadet</option>
                                             <option value="junior">Junior</option>
@@ -76,6 +79,8 @@ $(document).ready(function() {
                                     <div class="col-md-6">
                                         <select class="form-control" name="kategori" required="">
                                             value="{{$data_prestasi->kategori}}">
+                                            <option value="$data_prestasi->kategori}}">$data_prestasi->kategori}}
+                                            </option>
                                             <option value="prestasi">Prestasi</option>
                                             <option value="pemula">Pemula</option>
                                         </select>
@@ -88,6 +93,7 @@ $(document).ready(function() {
                                     <div class="col-md-6">
                                         <select class="form-control" name="perolehan" required="">
                                             value="{{$data_prestasi->perolehan}}">
+                                            <option value="$data_prestasi->perolehan">$data_prestasi->perolehan</option>
                                             <option value="emas">Emas</option>
                                             <option value="perak">Perak</option>
                                             <option value="perunggu">Perunggu</option>

@@ -130,7 +130,7 @@ $(document).ready(function() {
         <div class="card">
 
             <div class="card-body">
-                <h4 class="card-title">Daftar Prestasi {{Auth::user()->name}}</h4>
+                <h4 class="card-title">Daftar Prestasi Saya</h4>
 
                 <div class="table-responsive">
                     <table class="table table-striped" id="table">

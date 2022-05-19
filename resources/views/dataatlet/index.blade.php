@@ -17,6 +17,10 @@ $(document).ready(function() {
         <a href="{{ route('dataatlet.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i>
             Tambah Atlet</a>
     </div>
+    <div class="col-lg-2">
+        <a href="{{ route('dataatlet.create') }}" class="btn btn-warning btn-rounded btn-fw"><i class="fa fa-pdf"></i>
+            Export PDF</a>
+    </div>
     <div class="col-lg-12">
         @if (Session::has('message'))
         <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">
@@ -35,6 +39,9 @@ $(document).ready(function() {
                     <table class="table table-striped" id="table">
                         <thead>
                             <tr>
+                                <th>
+                                    foto
+                                </th>
                                 <th>
                                     Nama
                                 </th>
@@ -70,7 +77,8 @@ $(document).ready(function() {
                         <tbody>
                             @foreach($data_atlet as $data)
                             <tr>
-                                <td class="py-1">
+                                <td><img src="{{ asset('storage/'.$data->foto) }}" height="400" width="200"></td>
+                                <td>
                                     {{$data->name}}
                                 </td>
                                 <td>

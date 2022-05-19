@@ -91,6 +91,27 @@
             </ul>
         </div>
     </li>
+    <li class="nav-item {{ setActive(['laporanspp*','laporankas*','laporanatlet*']) }}">
+        <a class="nav-link " data-toggle="collapse" href="#ui-laporan" aria-expanded="false" aria-controls="ui-basic">
+            <i class="menu-icon mdi mdi-content-copy"></i>
+            <span class="menu-title">Laporan</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ setShow(['laporanspp*','laporankas*','laporanatlet*']) }}" id="ui-laporan">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive(['laporanatlet*']) }}" href="/laporanatlet">Laporan Atlet Baru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive(['laporanspp*']) }}" href="/laporanspp">Laporan SPP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive(['laporankas*']) }}" href="/laporankas">Laporan Kas</a>
+                </li>
+
+            </ul>
+        </div>
+    </li>
     @endif
     @if(Auth::user()->level == 'user')
     <li class="nav-item {{ setActive(['transaksi*']) }}">

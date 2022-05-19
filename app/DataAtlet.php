@@ -10,6 +10,7 @@ class DataAtlet extends Model
     protected $table = 'atlet';
     protected $fillable = [
         'id',
+        'foto',
         'name',
         'username',
         'email',

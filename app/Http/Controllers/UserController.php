@@ -63,32 +63,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $count = User::where('username', $request->input('username'))->count();
+        $atlet = new \App\User();
+        $atlet->name = $request->name;
+        $atlet->email = $request->email;
+        $atlet->password = bcrypt('rahasia');
+        $atlet->username = $request->username;
+        $atlet->level = 'user';
+        $atlet->remember_token = str_random(60);
+        $atlet->save();
 
-        if ($count > 0) {
-            Session::flash('message', 'Already exist!');
-            Session::flash('message_type', 'danger');
-            return redirect()->to('user');
-        }
+        $user_register = \App\DataAtlet::create($request->all());
 
-        $this->validate($request, [
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:20|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+        alert()->success('Berhasil.', 'Data telah disimpan!');
 
-        User::create([
-            'name' => $request->input('name'),
-            'username' => $request->input('username'),
-            'email' => $request->input('email'),
-            'level' => $request->input('level'),
-            'password' => bcrypt($request->input('password')),
-        ]);
-
-        Session::flash('message', 'Berhasil ditambahkan!');
-        Session::flash('message_type', 'success');
-        return redirect()->route('user.index');
+        return redirect('/login');
     }
 
     /**

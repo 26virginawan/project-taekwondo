@@ -155,9 +155,8 @@ $(document).ready(function() {
             <div class="card-header">foto Profil</div>
             <div class="card-body text-center">
                 <!-- Profile picture image-->
-                <img class="img-account-profile rounded-circle mb-2"
-                    src="https://i.pinimg.com/236x/82/2b/ae/822baef36029716ec69b17259bc74ac2.jpg" alt=""
-                    style="width:200px;height:200px;">
+                <img class="img-account-profile rounded-circle mb-2" src="{{ asset('storage/'.$data->foto) }}" alt=""
+                    style="width: 200px;">
                 <h4 class="font-weight-bold">{{$data->name}}</h4>
                 <h5>- {{$data->kelas}} -</h5>
             </div>
@@ -232,7 +231,15 @@ $(document).ready(function() {
 
                     <p>{{$data->kelas}}</p>
                 </div>
-
+                <div class="col-lg-2">
+                    <a href="{{route('dataatlet.edit', $data->id)}}" class="btn btn-primary btn-rounded btn-fw"><i
+                            class="fa fa-plus"></i>
+                        Edit </a>
+                </div>
+                <div class="col-lg-2">
+                    <a href="cetaknama" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i>
+                        Cetak Kartu </a>
+                </div>
 
             </div>
         </div>

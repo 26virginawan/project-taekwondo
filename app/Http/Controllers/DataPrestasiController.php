@@ -52,10 +52,10 @@ class DataPrestasiController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->level == 'user') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/dataprestasi');
-        }
+        // if (Auth::user()->level == 'user') {
+        //     Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+        //     return redirect()->to('/dataprestasi');
+        // }
         $data_name = DataAtlet::all();
 
         return view('dataprestasi.create', ['data_name' => $data_name]);

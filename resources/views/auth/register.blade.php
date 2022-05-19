@@ -19,7 +19,7 @@
 
 <body>
 
-    <form method="POST" action="{{ route('dataatlet.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="container-scroller">
             <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
@@ -36,6 +36,12 @@
                                     <label for="nama" class="col-md-4 control-label">Nama</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama" class="col-md-4 control-label">Username</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="username">
                                     </div>
                                 </div>
                                 <div class="form-group">

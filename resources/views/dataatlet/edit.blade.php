@@ -21,7 +21,15 @@ $(document).ready(function() {
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Edit Anggota</h4>
-
+                            <div class="form-group">
+                                <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
+                                    <label for="tgl_buka" class="col-md-4 control-label">Foto</label>
+                                    <div class="col-md-6">
+                                        <input type="file" name="image" class="form-control">
+                                        <small>kosongkan jika tidak mengubah gambar</small>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-lg-11 col-md-6 col-sm-12 space-bottom">
                                     <label for="tgl_buka" class="col-md-4 control-label">Nama</label>

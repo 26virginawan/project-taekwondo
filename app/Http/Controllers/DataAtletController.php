@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Auth;
 use DB;
 use Excel;
+use PDF;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DataAtletController extends Controller
@@ -57,7 +58,6 @@ class DataAtletController extends Controller
      */
     public function store(Request $request)
     {
-        
         $atlet = new \App\User();
         $atlet->name = $request->name;
         $atlet->email = $request->email;
@@ -67,11 +67,29 @@ class DataAtletController extends Controller
         $atlet->remember_token = str_random(60);
         $atlet->save();
 
-        $data_atlet = \App\DataAtlet::create($request->all());
+        if ($request->file('foto')) {
+            //simpan foto produk yang di upload ke direkteri public/storage/imageproduct
+            $file = $request->file('foto')->store('imageprestasi', 'public');
 
-        alert()->success('Berhasil.', 'Data telah ditambahkan!');
+            DataAtlet::create([
+                'foto' => $file,
+                'name' => $request->get('name'),
+                'username' => $request->get('username'),
+                'email' => $request->get('tgl_registrasi'),
+                'tempat_lahir' => $request->get('tempat_lahir'),
+                'tgl_lahir' => $request->get('tgl_lahir'),
+                'jenis_kelamin' => $request->get('jenis_kelamin'),
+                'bb' => $request->get('bb'),
+                'tb' => $request->get('tb'),
+                'no_hp' => $request->get('no_hp'),
+                'tingkat_sabuk' => $request->get('tingkat_sabuk'),
+                'kelas' => $request->get('kelas'),
+            ]);
 
-        return redirect('/dataatlet');
+            alert()->success('Berhasil.', 'Data telah ditambahkan!');
+
+            return redirect('/dataatlet');
+        }
     }
 
     /**
@@ -100,10 +118,10 @@ class DataAtletController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::user()->level == 'user') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
-        }
+        // if (Auth::user()->level == 'user') {
+        //     Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+        //     return redirect()->to('/');
+        // }
 
         $data_atlet = DataAtlet::findOrFail($id);
         return view('dataatlet.edit', compact('data_atlet'));
@@ -131,6 +149,10 @@ class DataAtletController extends Controller
             'kelas' => $request->get('kelas'),
         ]);
 
+        if (Auth::user()->level == 'user') {
+            alert()->success('Berhasil.', 'Data telah diubah!');
+            return redirect('/');
+        }
         alert()->success('Berhasil.', 'Data telah diubah!');
         return redirect('/dataatlet');
     }

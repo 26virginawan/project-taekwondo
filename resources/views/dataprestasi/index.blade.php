@@ -12,13 +12,11 @@ $(document).ready(function() {
 
 @section('content')
 <div class="row">
-    @if(Auth::user()->level == 'admin')
     <div class="col-lg-2">
         <a href="{{ route('dataprestasi.create') }}" class="btn btn-primary btn-rounded btn-fw"><i
                 class="fa fa-plus"></i>
             Tambah Data Prestasi </a>
     </div>
-    @endif
     <div class="col-lg-12">
         @if (Session::has('message'))
         <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">

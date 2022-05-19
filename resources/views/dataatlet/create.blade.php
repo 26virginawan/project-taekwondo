@@ -21,6 +21,14 @@ $(document).ready(function() {
                         <div class="card-body">
                             <h4 class="card-title">Tambah Anggota baru</h4>
                             <div class="form-group">
+                                <label for="email" class="col-md-4 control-label">Foto</label>
+                                <div class="col-md-6">
+                                    <img width="200" height="200" />
+                                    <input type="file" class="uploads form-control" style="margin-top: 20px;"
+                                        name="foto">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="nama" class="col-md-4 control-label">Nama</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="name">

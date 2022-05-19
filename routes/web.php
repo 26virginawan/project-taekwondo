@@ -16,14 +16,16 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/register', 'UserController@create');
+// Route::get('/register', 'UserController@create');
+// Route::post('/register', 'UserController@store');
+
+Route::resource('dataatlet', 'DataAtletController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
-
-Route::resource('dataatlet', 'DataAtletController');
+Route::get('/dashboard', 'HomeController@index');
 
 Route::resource('dataiuran', 'DataIuranController');
 
@@ -38,6 +40,12 @@ Route::resource('dataprestasi', 'DataPrestasiController');
 Route::resource('kasmasuk', 'KasMasukController');
 
 Route::resource('kaskeluar', 'KasKeluarController');
+
+Route::resource('laporanatlet', 'KasKeluarController');
+
+Route::resource('laporankas', 'KasKeluarController');
+
+Route::resource('laporanspp', 'KasKeluarController');
 
 Route::get('/dataprestasi', 'DataPrestasiController@index');
 
